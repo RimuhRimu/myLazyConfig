@@ -42,6 +42,8 @@ map("n", "<leader>wa", "<cmd>wa<cr>", { desc = "Save all buffers" })
 map("n", "<leader>wq", "<cmd>wq<cr>", { desc = "Save and quit" })
 
 -- miscelaneous
+map("n", "<Leader>shv", "<cmd>vs term://$SHELL<CR>", { desc = "Split a term verticaly" })
+map("n", "<Leader>shj", "<cmd>terminal<CR>", { desc = "Split a term horizontaly" })
 map("n", "<leader>mm", "<cmd>mess<cr>", { desc = "Show messages" })
 map("n", "<leader>mn", "<cmd>mess<cr>", { desc = "Show notifications" })
 map("v", "<leader><leader>m", "<cmd>Man<cr>", { desc = "Manual of this" })
