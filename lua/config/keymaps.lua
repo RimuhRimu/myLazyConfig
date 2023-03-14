@@ -42,7 +42,8 @@ map("n", "<leader>wa", "<cmd>wa<cr>", { desc = "Save all buffers" })
 map("n", "<leader>wq", "<cmd>wq<cr>", { desc = "Save and quit" })
 
 -- miscelaneous
-map("n", "<leader>m", "<cmd>mess<cr>", { desc = "Show messages" })
+map("n", "<leader>mm", "<cmd>mess<cr>", { desc = "Show messages" })
+map("n", "<leader>mn", "<cmd>mess<cr>", { desc = "Show notifications" })
 map("v", "<leader><leader>m", "<cmd>Man<cr>", { desc = "Manual of this" })
 map("n", "<leader><leader>x", "<cmd>w<cr><cmd>source %<cr>", { desc = "Save and source file" })
 
