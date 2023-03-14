@@ -39,6 +39,7 @@ map({ "i", "v", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save file" })
 -- windows
 map("n", "<leader>ww", "<cmd>w<cr>", { desc = "Save file" })
 map("n", "<leader>wa", "<cmd>wa<cr>", { desc = "Save all buffers" })
+map("n", "<leader>wq", "<cmd>wq<cr>", { desc = "Save and quit" })
 
 -- miscelaneous
 map("n", "<leader>m", "<cmd>mess<cr>", { desc = "Show messages" })
