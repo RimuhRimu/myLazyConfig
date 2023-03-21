@@ -17,7 +17,7 @@ map("n", "<leader>qa", "<cmd>qa<cr>", { desc = "Quit all" })
 map("n", "<leader>qq", "<cmd>q<cr>", { desc = "Quit" })
 
 -- escape insert mode
-map("i", "jk", "<del><del><Esc>")
+map("i", "jj", "<C-n>")
 
 -- Move to window using the <ctrl> hjkl keys
 map("n", "<A-h>", "<C-w>h", { desc = "Go to left window" })
@@ -42,10 +42,10 @@ map("n", "<leader>wa", "<cmd>wa<cr>", { desc = "Save all buffers" })
 map("n", "<leader>wq", "<cmd>wq<cr>", { desc = "Save and quit" })
 
 -- miscelaneous
-map("n", "<Leader>shv", "<cmd>vs term://$SHELL<CR>", { desc = "Split a term verticaly" })
-map("n", "<Leader>shj", "<cmd>terminal<CR>", { desc = "Split a term horizontaly" })
+map("n", "<Leader><leader>shv", "<cmd>vs term://$SHELL<CR>", { desc = "Split a term verticaly" })
+map("n", "<Leader><leader>shj", "<cmd>terminal<CR>", { desc = "Split a term horizontaly" })
 map("n", "<leader>mm", "<cmd>mess<cr>", { desc = "Show messages" })
-map("n", "<leader>mn", "<cmd>mess<cr>", { desc = "Show notifications" })
+map("n", "<leader>mn", "<cmd>Notifications<cr>", { desc = "Show notifications" })
 map("v", "<leader><leader>m", "<cmd>Man<cr>", { desc = "Manual of this" })
 map("n", "<leader><leader>x", "<cmd>w<cr><cmd>source %<cr>", { desc = "Save and source file" })
 
@@ -84,3 +84,15 @@ map("n", "<leader><leader>gad", "<cmd>Git add .<CR>", { desc = "Git add EVERYTHI
 map("n", "<leader><leder>gfd", "<cmd>Git add %<CR>", { desc = "Git add this file" })
 map("n", "<leader><leader>ggo", "<cmd>GBrowse<CR>", { desc = "Git browse" })
 map("n", "<leader><leader>go", "<cmd>Git log<CR>", { desc = ":Git log" })
+
+-- Improved Terminal Mappings
+map("t", "<esc>", "<C-\\><C-n>", { desc = "Terminal normal mode" })
+map("t", "jk", "<C-\\><C-n>", { desc = "Terminal normal mode" })
+map("t", "<A-h>", "<c-\\><c-n><c-w>h", { desc = "Terminal left window navigation" })
+map("t", "<A-j>", "<c-\\><c-n><c-w>j", { desc = "Terminal down window navigation" })
+map("t", "<A-k>", "<c-\\><c-n><c-w>k", { desc = "Terminal up window navigation" })
+map("t", "<A-l>", "<c-\\><c-n><c-w>l", { desc = "Terminal right window naviation" })
+
+-- Copilot
+map("n", "<leader><leader>cpd", "<cmd>Copilot disable<CR>", { desc = "Disable copilot" })
+map("n", "<leader><leader>cpe", "<cmd>Copilot enable<CR>", { desc = "Enable copilot" })
