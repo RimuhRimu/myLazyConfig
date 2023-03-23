@@ -96,3 +96,8 @@ map("t", "<A-l>", "<c-\\><c-n><c-w>l", { desc = "Terminal right window naviation
 -- Copilot
 map("n", "<leader><leader>cpd", "<cmd>Copilot disable<CR>", { desc = "Disable copilot" })
 map("n", "<leader><leader>cpe", "<cmd>Copilot enable<CR>", { desc = "Enable copilot" })
+
+-- Side bar
+map("n", "<leader><leader>q", function()
+  require("sidebar-nvim").toggle()
+end, { desc = "Toggle side bar" })
