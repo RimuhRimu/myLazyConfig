@@ -101,6 +101,19 @@ return {
   },
 
   {
+    "vimsence/vimsence",
+    config = function()
+      vim.cmd([[
+        let g:vimsence_small_text = 'NeoVim'
+        let g:vimsence_small_image = 'neovim'
+        let g:vimsence_editing_details = 'Editing: {}'
+        let g:vimsence_editing_state = 'Working on: {}'
+        let g:vimsence_file_explorer_text = 'In NeoTree'
+      ]])
+    end,
+  },
+
+  {
     "krivahtoo/silicon.nvim",
     build = "./install.sh",
     enabled = false,

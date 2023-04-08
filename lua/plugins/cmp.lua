@@ -38,17 +38,27 @@ return {
           }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
         }),
         sources = cmp.config.sources({
-          { name = "copilot" },
+          { name = "cmp_tabnine" },
           { name = "nvim_lsp" },
           { name = "luasnip" },
           { name = "buffer" },
           { name = "path" },
         }),
         formatting = {
-          format = function(_, item)
+          format = function(entry, item)
             local icons = require("lazyvim.config").icons.kinds
             if icons[item.kind] then
               item.kind = icons[item.kind] .. item.kind
+            elseif entry.source.name == "cmp_tabnine" then
+              local detail = (entry.completion_item.data or {}).detail
+              item.kind = ""
+              if detail and detail:find(".*%%.*") then
+                item.kind = item.kind .. " " .. detail
+              end
+
+              if (entry.completion_item.data or {}).multiline then
+                item.kind = item.kind .. " " .. "[ML]"
+              end
             end
             return item
           end,
@@ -59,6 +69,27 @@ return {
           },
         },
       }
+    end,
+  },
+  {
+    "tzachar/cmp-tabnine",
+    dependencies = "hrsh7th/nvim-cmp",
+    build = "./install.sh",
+    config = function()
+      local tabnine = require("cmp_tabnine.config")
+      tabnine:setup({
+        max_lines = 1000,
+        max_num_results = 20,
+        sort = true,
+        run_on_every_keystroke = true,
+        snippet_placeholder = "..",
+        ignored_file_types = {
+          -- default is not to ignore
+          -- uncomment to ignore in lua:
+          -- lua = true
+        },
+        show_prediction_strength = false,
+      })
     end,
   },
 }

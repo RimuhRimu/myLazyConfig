@@ -57,7 +57,7 @@ return {
         callback = function()
           local stats = require("lazy").stats()
           local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
-          dashboard.section.footer.val = [[💜 Yo, have a good day!, ⚡ Neovim loaded]]
+          dashboard.section.footer.val = [[💜 Yo, have a good day!, ⚡ Neovim loaded ]]
             .. stats.count
             .. " plugins in "
             .. ms
