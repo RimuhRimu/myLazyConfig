@@ -1,3 +1,4 @@
+lua/plugins/dev.lua
 tt.*
 .tests
 doc/tags
