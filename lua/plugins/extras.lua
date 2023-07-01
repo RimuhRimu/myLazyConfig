@@ -101,6 +101,10 @@ return {
   },
 
   {
+    "ap/vim-css-color",
+  },
+
+  {
     "andweeb/presence.nvim",
     config = function()
       require("presence").setup({

@@ -75,14 +75,14 @@ return {
     "tzachar/cmp-tabnine",
     dependencies = "hrsh7th/nvim-cmp",
     build = "./install.sh",
-    config = function()
+    setup = function()
       local tabnine = require("cmp_tabnine.config")
       tabnine:setup({
         max_lines = 1000,
-        max_num_results = 20,
-        sort = true,
+        max_num_results = 5,
         run_on_every_keystroke = true,
         snippet_placeholder = "..",
+        sort = true,
         ignored_file_types = {
           -- default is not to ignore
           -- uncomment to ignore in lua:

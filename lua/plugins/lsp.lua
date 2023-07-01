@@ -23,6 +23,10 @@ return {
         hls = {
           filetype = { "haskell", "lhaskell", "cabal" },
         },
+        dartls = {
+          cmd = { "dart", "language-server", "--protocol=lsp" },
+          root_dir = require("lspconfig").util.root_pattern("*.dart"),
+        },
       },
     },
   },
