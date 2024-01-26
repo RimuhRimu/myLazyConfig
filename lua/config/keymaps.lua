@@ -17,7 +17,7 @@ map("n", "<leader>qa", "<cmd>qa<cr>", { desc = "Quit all" })
 map("n", "<leader>qq", "<cmd>q<cr>", { desc = "Quit" })
 
 -- escape insert mode
-map("i", "jj", "<C-n>")
+map("i", "jj", "<Esc>")
 
 -- Move to window using the <ctrl> hjkl keys
 map("n", "<A-h>", "<C-w>h", { desc = "Go to left window" })

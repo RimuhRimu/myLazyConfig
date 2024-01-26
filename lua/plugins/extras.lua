@@ -6,6 +6,16 @@ return {
 
   {
     "nvim-treesitter/nvim-treesitter",
+    config = function()
+      local parser = require("nvim-treesitter.parsers").get_parser_configs()
+      parser.dart = {
+        install_info = {
+          url = "https://github.com/UserNobody14/tree-sitter-dart",
+          files = { "src/parser.c", "src/scanner.c" },
+          revision = "8aa8ab977647da2d4dcfb8c4726341bee26fbce4", -- The last commit before the snail speed
+        },
+      }
+    end,
     opts = {
       rainbow = {
         enable = true,
@@ -18,13 +28,33 @@ return {
     },
   },
   -- Multi cursor
+  -- {
+  --   "mg979/vim-visual-multi",
+  -- },
+
+  -- Edit like a buffer
   {
-    "mg979/vim-visual-multi",
+    "stevearc/oil.nvim",
+    config = function()
+      require("oil").setup()
+    end,
+  },
+
+  {
+    "uga-rosa/ccc.nvim",
+    config = function()
+      require("ccc").setup()
+    end,
   },
 
   -- Choose win with <leader>a
   {
     "t9md/vim-choosewin",
+    config = function()
+      vim.cmd([[
+      let g:choosewin_overlay_enable = 1
+      ]])
+    end,
     keys = { { "<leader>a", "<cmd>ChooseWin<cr>", desc = "Choose win" } },
   },
 
@@ -80,24 +110,30 @@ return {
   },
 
   {
-    "p00f/nvim-ts-rainbow",
-  },
-
-  {
-    {
-      "jose-elias-alvarez/null-ls.nvim",
-      opts = function()
-        local nls = require("null-ls")
-        return {
-          sources = {
-            nls.builtins.formatting.fish_indent,
-            nls.builtins.diagnostics.fish,
-            nls.builtins.formatting.stylua,
-            nls.builtins.formatting.shfmt,
-          },
-        }
-      end,
-    },
+    url = "https://gitlab.com/HiPhish/rainbow-delimiters.nvim",
+    config = function()
+      -- This module contains a number of default definitions
+      local rainbow_delimiters = require("rainbow-delimiters")
+      vim.g.rainbow_delimiters = {
+        strategy = {
+          [""] = rainbow_delimiters.strategy["global"],
+          vim = rainbow_delimiters.strategy["local"],
+        },
+        query = {
+          [""] = "rainbow-delimiters",
+          lua = "rainbow-blocks",
+        },
+        highlight = {
+          "RainbowDelimiterRed",
+          "RainbowDelimiterYellow",
+          "RainbowDelimiterBlue",
+          "RainbowDelimiterOrange",
+          "RainbowDelimiterGreen",
+          "RainbowDelimiterViolet",
+          "RainbowDelimiterCyan",
+        },
+      }
+    end,
   },
 
   {
@@ -128,6 +164,18 @@ return {
         workspace_text = "Working on %s", -- Format string rendered when in a git repository (either string or function(project_name: string|nil, filename: string): string)
         line_number_text = "Line %s out of %s", -- Format string rendered when `enable_line_number` is set to true (either string or function(line_number: number, line_count: number): string)
       })
+    end,
+  },
+
+  {
+    "lukas-reineke/headlines.nvim",
+  },
+
+  {
+    "akinsho/flutter-tools.nvim",
+    lazy = false,
+    config = function()
+      require("flutter-tools").setup({})
     end,
   },
 

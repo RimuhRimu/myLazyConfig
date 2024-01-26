@@ -5,6 +5,17 @@ return {
     opts = {
       ---@type lspconfig.options
       servers = {
+        lua_ls = {
+          root_dir = require("lspconfig").util.root_pattern("*.lua"),
+          single_file_support = true,
+          settings = {
+            Lua = {
+              workspace = {
+                checkThirdParty = true,
+              },
+            },
+          },
+        },
         -- pyright will be automatically installed with mason and loaded with lspconfig
         pyright = {
           analysis = {
