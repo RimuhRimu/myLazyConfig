@@ -58,6 +58,9 @@ map("n", "<leader>nt", "<cmd>Neotree toggle<cr>", { desc = "Toggle Explorer" })
 map("n", "<leader>nb", "<cmd>Neotree buffers<cr>", { desc = "Toggle Explorer Buffers" })
 map("n", "<leader>ng", "<cmd>Neotree git_status<cr>", { desc = "Toggle Explorer Git Status" })
 
+--Oil
+map("n", "<leader>no", "<cmd>Oil --float .<cr>", { desc = "Toggle Oil Explorer" })
+
 -- Plenary
 
 map("n", "<leader><leader>pp", "<Plug>PlenaryTestFile")

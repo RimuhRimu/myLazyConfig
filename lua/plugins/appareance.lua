@@ -53,6 +53,7 @@ return {
 
   {
     "sidebar-nvim/sidebar.nvim",
+    enabled = false,
     config = function()
       require("sidebar-nvim").setup({
         disable_default_keybindings = 0,
